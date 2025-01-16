@@ -1,5 +1,4 @@
-org.gradle.java.home=C:\\Users\\redbl\\Downloads\\zulu21\\zulu21.34.19-ca-jdk21.0.3-win_x64\\
-org.gradle.jvmargs=-Xmx2G
+org.gradle.jvmargs=-Xmx8G
 org.gradle.daemon=false
 org.gradle.parallel=true
 org.gradle.caching=true

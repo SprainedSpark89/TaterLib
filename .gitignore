@@ -37,3 +37,9 @@ run
 *.iml
 *.ipr
 *.iws
+# eclipse
+.classpath
+*/.classpath
+*/*/.classpath
+.project
+*.prefs
