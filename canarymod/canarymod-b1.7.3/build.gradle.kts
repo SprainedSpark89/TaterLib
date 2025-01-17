@@ -2,6 +2,12 @@ base {
     archivesName = "${projectId}-canarymod-${minecraftVersion}"
 }
 
+repositories {
+    flatDir {
+        dirs("libs")
+    }
+}
+
 dependencies {
     compileOnly(":CanaryMod-b1.7.3")
 	compileOnly(":jarjar-b1.7.3")

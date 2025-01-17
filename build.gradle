@@ -352,8 +352,5 @@ publishing {
                 password = project.findProperty("neuralNexusPassword") ?: System.getenv("NEURALNEXUS_PASSWORD")
             }
         }
-		flatDir {
-			dirs("libs")
-		}
     }
 }
