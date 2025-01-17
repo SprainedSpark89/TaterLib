@@ -3,18 +3,13 @@ base {
 }
 
 repositories {
-    // NeuralNexus Private
-    maven("https://maven.neuralnexus.dev/private") {
-        name = "NeuralNexusPrivate"
-        credentials {
-            username = (project.findProperty("neuralNexusUsername") ?: System.getenv("NEURALNEXUS_USERNAME")).toString()
-            password = (project.findProperty("neuralNexusPassword") ?: System.getenv("NEURALNEXUS_PASSWORD")).toString()
-        }
+    flatDir {
+        dirs("libs")
     }
 }
 
 dependencies {
-    compileOnly("org.bukkit:craftbukkit:${minecraftVersion}-${apiVersion}")
+    compileOnly(":uberbukkit-2.0.2")
     compileOnly(project(":api"))
     compileOnly(project(":common"))
     compileOnly(project(":loader"))
