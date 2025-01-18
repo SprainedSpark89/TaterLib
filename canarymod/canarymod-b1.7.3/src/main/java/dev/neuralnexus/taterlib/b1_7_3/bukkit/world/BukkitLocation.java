@@ -11,10 +11,10 @@ import dev.neuralnexus.taterapi.world.World;
 
 /** Bukkit implementation of {@link Location}. */
 public class BukkitLocation implements Location {
-    private final org.bukkit.Location location;
+    private final Location location;
 
     /** Creates a new location. */
-    public BukkitLocation(org.bukkit.Location location) {
+    public BukkitLocation(Location location) {
         this.location = location;
     }
 
@@ -35,7 +35,7 @@ public class BukkitLocation implements Location {
 
     @Override
     public float yaw() {
-        return location.getYaw();
+        return location.yaw();
     }
 
     @Override
@@ -45,7 +45,7 @@ public class BukkitLocation implements Location {
 
     @Override
     public float pitch() {
-        return location.getPitch();
+        return location.pitch();
     }
 
     @Override
@@ -55,12 +55,12 @@ public class BukkitLocation implements Location {
 
     @Override
     public BlockPos blockPosition() {
-        return new BlockPos(location.getX(), location.getY(), location.getZ());
+        return new BlockPos(location.x(), location.y(), location.z());
     }
 
     @Override
     public World world() {
-        return new BukkitWorld(location.getWorld());
+        return new BukkitWorld(location.world());
     }
 
     @Override

@@ -10,12 +10,13 @@ import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.Location;
 import dev.neuralnexus.taterapi.world.World;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.BukkitEntity;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.player.BukkitPlayer;
 
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import BukkitEntity;
+import BukkitPlayer;
 
 /** Bukkit implementation of {@link World}. */
 public class BukkitWorld implements World {

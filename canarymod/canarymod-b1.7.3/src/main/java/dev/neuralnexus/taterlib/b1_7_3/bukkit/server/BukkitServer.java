@@ -9,11 +9,12 @@ import dev.neuralnexus.taterapi.entity.player.SimplePlayer;
 import dev.neuralnexus.taterapi.exceptions.VersionFeatureNotSupportedException;
 import dev.neuralnexus.taterapi.server.Server;
 import dev.neuralnexus.taterapi.world.ServerWorld;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.player.BukkitPlayer;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitServerWorld;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+
+import BukkitPlayer;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -6,10 +6,11 @@
 package dev.neuralnexus.taterlib.b1_7_3.bukkit.command;
 
 import dev.neuralnexus.taterapi.command.Command;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.player.BukkitPlayer;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import BukkitPlayer;
 
 /** Wraps a command callback into a Bukkit CommandExecutor. */
 public class BukkitCommandWrapper extends org.bukkit.command.Command {

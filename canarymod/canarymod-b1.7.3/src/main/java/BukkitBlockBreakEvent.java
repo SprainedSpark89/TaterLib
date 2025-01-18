@@ -5,32 +5,32 @@
  */
 
 
-import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.event.block.PlayerBlockBreakEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.player.BukkitPlayer;
 
 /** Bukkit implementation of {@link PlayerBlockBreakEvent}. */
 public class BukkitBlockBreakEvent extends BukkitBlockEvent implements PlayerBlockBreakEvent {
     public final Player player;
     public final Block block;
+    public boolean cancel = false;
 
     public BukkitBlockBreakEvent(Player player, Block block) {
-        super(event);
-        this.event = event;
+        super(player, block);
+        this.player = player;
+        this.block = block;
     }
 
     @Override
     public boolean cancelled() {
-        return event.isCancelled();
+        return cancel;
     }
 
     @Override
     public void setCancelled(boolean cancelled) {
-        event.setCancelled(cancelled);
+    	this.cancel = cancelled;
     }
 
     @Override
-    public Player player() {
-        return new BukkitPlayer(event.getPlayer());
+    public dev.neuralnexus.taterapi.entity.player.Player player() {
+        return new BukkitPlayer(player);
     }
 }

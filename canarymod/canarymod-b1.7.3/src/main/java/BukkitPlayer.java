@@ -3,32 +3,28 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.player;
+
 
 import dev.neuralnexus.taterapi.entity.player.GameMode;
-import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.entity.player.ServerPlayer;
 import dev.neuralnexus.taterapi.exceptions.VersionFeatureNotSupportedException;
 import dev.neuralnexus.taterapi.item.inventory.PlayerInventory;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.Location;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.BukkitLivingEntity;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.item.inventory.BukkitPlayerInventory;
-
-import org.bukkit.plugin.Plugin;
 
 import java.util.UUID;
 
 /** Bukkit implementation of {@link Player}. */
-public class BukkitPlayer extends BukkitLivingEntity implements Player, ServerPlayer {
-    private final org.bukkit.entity.Player player;
+public class BukkitPlayer extends BukkitLivingEntity implements dev.neuralnexus.taterapi.entity.player.Player, ServerPlayer {
+    private final Player player;
 
     /**
      * Constructor.
      *
      * @param player The Bukkit player.
      */
-    public BukkitPlayer(org.bukkit.entity.Player player) {
+    public BukkitPlayer(Player player) {
         super(player);
         this.player = player;
     }
@@ -38,18 +34,18 @@ public class BukkitPlayer extends BukkitLivingEntity implements Player, ServerPl
      *
      * @return The Bukkit player
      */
-    public org.bukkit.entity.Player player() {
+    public Player player() {
         return player;
     }
 
     @Override
     public UUID uuid() {
-        return player.getUniqueId();
+        return null;
     }
 
     @Override
     public String ipAddress() {
-        return player.getAddress().getAddress().getHostAddress();
+        return player.getIP();
     }
 
     @Override
@@ -59,7 +55,7 @@ public class BukkitPlayer extends BukkitLivingEntity implements Player, ServerPl
 
     @Override
     public String displayName() {
-        return player.getDisplayName();
+        return player.getName();
     }
 
     @Override
@@ -95,7 +91,7 @@ public class BukkitPlayer extends BukkitLivingEntity implements Player, ServerPl
 
     @Override
     public void kick(String reason) {
-        player.kickPlayer(reason);
+        player.kick(reason);
     }
 
     @Override
@@ -129,11 +125,10 @@ public class BukkitPlayer extends BukkitLivingEntity implements Player, ServerPl
 
     @Override
     public GameMode gameMode() {
-        return GameMode.fromName(player.getGameMode().name());
+        return GameMode.SURVIVAL;
     }
 
     @Override
     public void setGameMode(GameMode gameMode) {
-        player.setGameMode(org.bukkit.GameMode.valueOf(gameMode.name()));
     }
 }

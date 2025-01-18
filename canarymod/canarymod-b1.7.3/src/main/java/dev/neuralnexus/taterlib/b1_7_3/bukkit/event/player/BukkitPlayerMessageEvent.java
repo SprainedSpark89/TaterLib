@@ -7,9 +7,10 @@ package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player;
 
 import dev.neuralnexus.taterapi.entity.player.SimplePlayer;
 import dev.neuralnexus.taterapi.event.player.PlayerMessageEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.player.BukkitPlayer;
 
 import org.bukkit.event.player.PlayerChatEvent;
+
+import BukkitPlayer;
 
 import java.util.Set;
 import java.util.stream.Collectors;

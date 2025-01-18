@@ -7,10 +7,11 @@ package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity;
 
 import dev.neuralnexus.taterapi.entity.Entity;
 import dev.neuralnexus.taterapi.event.entity.EntityDamageEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.entity.BukkitEntity;
 
 import org.bukkit.event.entity.EntityDamageByBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
+import BukkitEntity;
 
 import java.lang.reflect.Field;
 

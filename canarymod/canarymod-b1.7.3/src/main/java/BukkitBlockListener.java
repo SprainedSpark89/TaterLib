@@ -15,9 +15,7 @@ public class BukkitBlockListener extends PluginListener {
      * @param event The event.
      */
 	public boolean onBlockBreak(final Player player, final Block block) {
-		return false;
+		BlockEvents.PLAYER_BLOCK_BREAK.invoke(new BukkitBlockBreakEvent(player, block));
+		return ((BukkitBlockBreakEvent)(BlockEvents.PLAYER_BLOCK_BREAK.listeners().get(0))).cancel;
 	}
-    public void onBlockBreak(org.bukkit.event.block.BlockBreakEvent event) {
-        BlockEvents.PLAYER_BLOCK_BREAK.invoke(new BukkitBlockBreakEvent(event));
-    }
 }

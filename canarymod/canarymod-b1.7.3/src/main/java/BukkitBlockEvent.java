@@ -5,8 +5,6 @@
  */
 
 
-import dev.neuralnexus.taterapi.block.Block;
-import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.event.block.BlockEvent;
 
 /** Bukkit implementation of {@link BlockEvent}. */
@@ -20,7 +18,7 @@ public class BukkitBlockEvent implements BlockEvent {
     }
 
     @Override
-    public Block block() {
-        return new BukkitBlock(event.getBlock());
+    public dev.neuralnexus.taterapi.block.Block block() {
+        return new BukkitBlock(block);
     }
 }

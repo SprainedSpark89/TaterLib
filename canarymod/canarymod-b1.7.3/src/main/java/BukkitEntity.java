@@ -3,16 +3,13 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.entity;
+
 
 import dev.neuralnexus.taterapi.TaterAPIProvider;
-import dev.neuralnexus.taterapi.entity.Entity;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.Location;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitLocation;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitWorld;
-
-import net.minecraft.server.EntityTypes;
 
 import org.bukkit.craftbukkit.entity.CraftEntity;
 
@@ -20,15 +17,15 @@ import java.util.Optional;
 import java.util.UUID;
 
 /** Bukkit implementation of {@link Entity}. */
-public class BukkitEntity implements Entity {
-    private final org.bukkit.entity.Entity entity;
+public class BukkitEntity implements dev.neuralnexus.taterapi.entity.Entity {
+    private final BaseEntity entity;
 
     /**
      * Constructor.
      *
      * @param entity The Bukkit entity.
      */
-    public BukkitEntity(org.bukkit.entity.Entity entity) {
+    public BukkitEntity(BaseEntity entity) {
         this.entity = entity;
     }
 
@@ -37,29 +34,29 @@ public class BukkitEntity implements Entity {
      *
      * @return The Bukkit entity.
      */
-    public org.bukkit.entity.Entity entity() {
+    public BaseEntity entity() {
         return entity;
     }
 
     @Override
     public UUID uuid() {
-        return entity.getUniqueId();
+        return null;
     }
 
     @Override
     public int entityId() {
-        return entity.getEntityId();
+        return entity.getId();
     }
 
     @Override
     public void remove() {
-        entity.remove();
+        entity.destroy();
     }
 
     @Override
     public ResourceKey type() {
         return ResourceKey.of(
-                "minecraft", EntityTypes.b(((CraftEntity) entity).getHandle()).toLowerCase());
+                "minecraft", OEnumMobType.b(((CraftEntity) entity).getHandle()).toLowerCase());
     }
 
     @Override
@@ -77,7 +74,11 @@ public class BukkitEntity implements Entity {
 
     @Override
     public Location location() {
-        return new BukkitLocation(entity.getLocation());
+    	Location location = null;
+    	location.setX(entity.getX());
+    	location.setY(entity.getY());
+    	location.setZ(entity.getZ());
+        return new BukkitLocation(location);
     }
 
     @Override
@@ -87,12 +88,7 @@ public class BukkitEntity implements Entity {
 
     @Override
     public void teleport(Location location) {
-        entity.teleport(
-                new org.bukkit.Location(
-                        ((BukkitWorld) location.world()).world(),
-                        location.x(),
-                        location.y(),
-                        location.z()));
+        entity.teleportTo(location.x(), location.y(), location.z(), location.yaw(), location.pitch());
     }
 
     @Override

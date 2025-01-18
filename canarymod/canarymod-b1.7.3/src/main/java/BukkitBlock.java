@@ -8,11 +8,10 @@
 
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.BlockPos;
-import util.BlockNames;
 
 /** Bukkit implementation of {@link Block}. */
 public class BukkitBlock implements dev.neuralnexus.taterapi.block.Block {
-    private final Block block;
+    public final Block block;
 
     public BukkitBlock(Block block) {
         this.block = block;
@@ -20,7 +19,7 @@ public class BukkitBlock implements dev.neuralnexus.taterapi.block.Block {
 
     @Override
     public ResourceKey type() {
-        return ResourceKey.of("minecraft", BlockNames.idToName.);
+        return ResourceKey.of("minecraft", block.blockType.name());
     }
 
     @Override
