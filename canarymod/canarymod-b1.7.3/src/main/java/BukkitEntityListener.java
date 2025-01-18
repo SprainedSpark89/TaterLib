@@ -12,9 +12,6 @@ import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityDeathEven
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntitySpawnEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerDeathEvent;
 
-import org.bukkit.entity.Player;
-import org.bukkit.event.entity.*;
-
 /** Listens for entity events. */
 public class BukkitEntityListener extends EntityListener {
     /**

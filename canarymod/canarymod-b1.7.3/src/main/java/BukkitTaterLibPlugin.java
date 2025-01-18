@@ -17,15 +17,14 @@ import dev.neuralnexus.taterapi.event.server.ServerStoppingEvent;
 import dev.neuralnexus.taterapi.loader.Loader;
 import dev.neuralnexus.taterlib.TaterLibPlugin;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.command.BukkitCommandRegisterEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.server.BukkitServer;
 
 @SuppressWarnings("unused")
 public class BukkitTaterLibPlugin extends Plugin implements TaterLibPlugin {
-	
+	BukkitBlockListener blockBreakListener = new BukkitBlockListener();
     @Override
     public void enable() {
         // block breaking normal
-    	etc.getLoader().addListener(PluginLoader.Hook.BLOCK_BROKEN, null, null, null);
+    	etc.getLoader().addListener(PluginLoader.Hook.BLOCK_BROKEN, blockBreakListener, this, PluginListener.Priority.MEDIUM);
     	// command
     	// damage normal
     	// death normal

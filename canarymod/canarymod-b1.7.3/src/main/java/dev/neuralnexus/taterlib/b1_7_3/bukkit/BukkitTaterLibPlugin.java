@@ -18,7 +18,6 @@ import dev.neuralnexus.taterapi.loader.Loader;
 import dev.neuralnexus.taterlib.TaterLibPlugin;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.command.BukkitCommandRegisterEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.listeners.block.BukkitBlockListener;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.server.BukkitServer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -27,6 +26,7 @@ import org.bukkit.plugin.PluginManager;
 
 import BukkitEntityListener;
 import BukkitPlayerListener;
+import BukkitServer;
 
 @SuppressWarnings("unused")
 public class BukkitTaterLibPlugin implements TaterLibPlugin {

@@ -5,11 +5,11 @@
  */
 package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player;
 
+import BukkitLocation;
 import BukkitPlayer;
 import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.event.player.PlayerRespawnEvent;
 import dev.neuralnexus.taterapi.world.Location;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitLocation;
 
 /** An implementation of {@link PlayerRespawnEvent} for Bukkit. */
 public class BukkitPlayerRespawnEvent extends BukkitPlayerEvent implements PlayerRespawnEvent {

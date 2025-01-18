@@ -8,10 +8,6 @@
 import dev.neuralnexus.taterapi.TaterAPIProvider;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.Location;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitLocation;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitWorld;
-
-import org.bukkit.craftbukkit.entity.CraftEntity;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -83,7 +79,12 @@ public class BukkitEntity implements dev.neuralnexus.taterapi.entity.Entity {
 
     @Override
     public ResourceKey biome() {
-        return ResourceKey.of(entity.getLocation().getBlock().getBiome().name());
+    	//taken from a1.2.6.1 recreation i made
+    	//double temp = this.mc.theWorld.func_4075_a().getTemperatures(this.mc.theWorld.func_4075_a().temperature, (int)this.mc.thePlayer.posX, (int)this.mc.thePlayer.posZ, 1, 1)[0];
+        //double humidity = this.mc.theWorld.func_4075_a().getHumidities(this.mc.theWorld.func_4075_a().temperature, (int)this.mc.thePlayer.posX, (int)this.mc.thePlayer.posZ, 1, 1)[0];
+    	double temp = entity.getWorld().getWorld().a().a(entity.getWorld().getWorld().a().a, (int)entity.getX(), (int)entity.getZ(), 1, 1)[0];
+    	double hum = (entity.getWorld().getWorld().a().a(entity.getWorld().getWorld().a().b, (int)entity.getX(), (int)entity.getZ(), 1, 1)[0]) * temp;
+        return ResourceKey.of(OBiomeGenBase.a(temp, hum).n);
     }
 
     @Override

@@ -7,9 +7,10 @@ package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity;
 
 import dev.neuralnexus.taterapi.event.entity.EntitySpawnEvent;
 import dev.neuralnexus.taterapi.world.Location;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.world.BukkitLocation;
 
 import org.bukkit.event.entity.CreatureSpawnEvent;
+
+import BukkitLocation;
 
 /** Bukkit implementation of {@link EntitySpawnEvent}. */
 public class BukkitEntitySpawnEvent extends BukkitEntityEvent implements EntitySpawnEvent {

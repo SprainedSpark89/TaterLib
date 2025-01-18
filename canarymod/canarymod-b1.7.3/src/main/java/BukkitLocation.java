@@ -3,11 +3,10 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.world;
+
 
 import dev.neuralnexus.taterapi.world.BlockPos;
 import dev.neuralnexus.taterapi.world.Location;
-import dev.neuralnexus.taterapi.world.World;
 
 /** Bukkit implementation of {@link Location}. */
 public class BukkitLocation implements Location {
@@ -59,12 +58,12 @@ public class BukkitLocation implements Location {
     }
 
     @Override
-    public World world() {
-        return new BukkitWorld(location.world());
+    public dev.neuralnexus.taterapi.world.World world() {
+        return new BukkitWorld((World)location.world());
     }
 
     @Override
-    public void setWorld(World world) {
-        location.setWorld(((BukkitWorld) world).world());
+    public void setWorld(dev.neuralnexus.taterapi.world.World world) {
+        location.setWorld((dev.neuralnexus.taterapi.world.World)((BukkitWorld) world).world());
     }
 }
