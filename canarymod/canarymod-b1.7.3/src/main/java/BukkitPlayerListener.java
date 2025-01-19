@@ -6,7 +6,6 @@
 
 
 import dev.neuralnexus.taterapi.event.api.PlayerEvents;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerLoginEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerLogoutEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerMessageEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerRespawnEvent;

@@ -67,8 +67,4 @@ public class BukkitEntityListener extends PluginListener {
     	EntityEvents.SPAWN.invoke(new BukkitEntitySpawnEvent(mob));
         return false;
     }
-    @Override
-    public void onCreatureSpawn(CreatureSpawnEvent event) {
-        EntityEvents.SPAWN.invoke(new BukkitEntitySpawnEvent(event));
-    }
 }

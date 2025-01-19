@@ -37,6 +37,7 @@ public class BukkitTaterLibPlugin extends Plugin implements TaterLibPlugin {
     	// mob spawn normal
     	etc.getLoader().addListener(PluginLoader.Hook.MOB_SPAWN, entityListener, this, PluginListener.Priority.MEDIUM);
     	// player join normal
+    	
     	// player leave normal
     	// player chat highest
     	// player respawn normal

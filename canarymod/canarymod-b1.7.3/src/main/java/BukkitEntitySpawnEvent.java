@@ -9,29 +9,28 @@ import dev.neuralnexus.taterapi.event.entity.EntitySpawnEvent;
 import dev.neuralnexus.taterapi.world.Location;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityEvent;
 
-import org.bukkit.event.entity.CreatureSpawnEvent;
-
 /** Bukkit implementation of {@link EntitySpawnEvent}. */
 public class BukkitEntitySpawnEvent extends BukkitEntityEvent implements EntitySpawnEvent {
-    private final CreatureSpawnEvent event;
+    private final Mob event;
+    boolean stop = false;
 
-    public BukkitEntitySpawnEvent(CreatureSpawnEvent event) {
-        super(event);
+    public BukkitEntitySpawnEvent(Mob event) {
+        //super(event);
         this.event = event;
     }
 
     @Override
     public boolean cancelled() {
-        return event.isCancelled();
+        return stop;
     }
 
     @Override
     public void setCancelled(boolean cancelled) {
-        event.setCancelled(cancelled);
+        stop = (cancelled);
     }
 
     @Override
     public Location location() {
-        return new BukkitLocation(event.getLocation());
+        return new BukkitLocation(event.getX(), event.getY(), event.getX(), event.getPitch(), event.getRotation());
     }
 }

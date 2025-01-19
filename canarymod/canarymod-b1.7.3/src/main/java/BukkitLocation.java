@@ -17,7 +17,17 @@ public class BukkitLocation implements Location {
         this.location = location;
     }
 
-    @Override
+    public BukkitLocation(double x, double y, double z, float pitch, float rotation) {
+		this.location = null;
+		// TODO Auto-generated constructor stub
+    	setX(x);
+    	setY(y);
+    	setZ(z);
+    	setPitch(pitch);
+    	setYaw(rotation);
+	}
+
+	@Override
     public void setX(double x) {
         location.setX(x);
     }
