@@ -7,34 +7,20 @@
 
 import dev.neuralnexus.taterapi.event.api.EntityEvents;
 import dev.neuralnexus.taterapi.event.api.PlayerEvents;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityDamageEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityDeathEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntitySpawnEvent;
 import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerDeathEvent;
 
 /** Listens for entity events. */
-public class BukkitEntityListener extends EntityListener {
+public class BukkitEntityListener extends PluginListener {
     /**
      * Called when an entity is damaged.
      *
      * @param event The event.
      */
-    @Override
-    public void onEntityDamage(EntityDamageEvent event) {
-        EntityEvents.DAMAGE.invoke(new BukkitEntityDamageEvent(event));
-        // TODO: Find a fix for this
-        //        switch (event.getCause()) {
-        //            case ENTITY_ATTACK:
-        //                EntityEvents.DAMAGE_BY_ENTITY.invoke(
-        //                        new BukkitEntityDamageEvent.DamageByEntity(
-        //                                (EntityDamageByEntityEvent) event));
-        //                break;
-        //            case SUFFOCATION:
-        //                EntityEvents.DAMAGE_BY_BLOCK.invoke(
-        //                        new BukkitEntityDamageEvent.DamageByBlock(
-        //                                (EntityDamageByBlockEvent) event));
-        //                break;
-        //        }
+	
+	public boolean onDamage(PluginLoader.DamageType type, BaseEntity attacker, BaseEntity defender, int amount) {
+		EntityEvents.DAMAGE.invoke(new BukkitEntityDamageEvent(type, attacker, defender, amount));
+		return false;
     }
 
     //    /**
@@ -62,7 +48,7 @@ public class BukkitEntityListener extends EntityListener {
      *
      * @param event The event.
      */
-    @Override
+    /*@Override
     public void onEntityDeath(EntityDeathEvent event) {
         EntityEvents.DEATH.invoke(new BukkitEntityDeathEvent(event));
 
@@ -70,13 +56,17 @@ public class BukkitEntityListener extends EntityListener {
         if (event.getEntity() instanceof Player) {
             PlayerEvents.DEATH.invoke(new BukkitPlayerDeathEvent(event));
         }
-    }
+    }*/
 
     /**
      * Called when an entity spawns.
      *
      * @param event The event.
      */
+    public boolean onMobSpawn(Mob mob) {
+    	EntityEvents.SPAWN.invoke(new BukkitEntitySpawnEvent(mob));
+        return false;
+    }
     @Override
     public void onCreatureSpawn(CreatureSpawnEvent event) {
         EntityEvents.SPAWN.invoke(new BukkitEntitySpawnEvent(event));

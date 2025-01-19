@@ -3,14 +3,13 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity;
+
 
 import dev.neuralnexus.taterapi.event.entity.EntitySpawnEvent;
 import dev.neuralnexus.taterapi.world.Location;
+import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityEvent;
 
 import org.bukkit.event.entity.CreatureSpawnEvent;
-
-import BukkitLocation;
 
 /** Bukkit implementation of {@link EntitySpawnEvent}. */
 public class BukkitEntitySpawnEvent extends BukkitEntityEvent implements EntitySpawnEvent {

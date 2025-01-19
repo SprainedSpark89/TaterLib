@@ -16,19 +16,26 @@ import dev.neuralnexus.taterapi.event.server.ServerStoppedEvent;
 import dev.neuralnexus.taterapi.event.server.ServerStoppingEvent;
 import dev.neuralnexus.taterapi.loader.Loader;
 import dev.neuralnexus.taterlib.TaterLibPlugin;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.command.BukkitCommandRegisterEvent;
 
 @SuppressWarnings("unused")
 public class BukkitTaterLibPlugin extends Plugin implements TaterLibPlugin {
 	BukkitBlockListener blockBreakListener = new BukkitBlockListener();
+	BukkitCommandWrapper commandListener = new BukkitCommandWrapper();
+	BukkitEntityListener entityListener = new BukkitEntityListener();
     @Override
     public void enable() {
         // block breaking normal
     	etc.getLoader().addListener(PluginLoader.Hook.BLOCK_BROKEN, blockBreakListener, this, PluginListener.Priority.MEDIUM);
     	// command
+    	etc.getLoader().addListener(PluginLoader.Hook.COMMAND, commandListener, this, PluginListener.Priority.MEDIUM);
+    	etc.getLoader().addListener(PluginLoader.Hook.SERVERCOMMAND, commandListener, this, PluginListener.Priority.MEDIUM);
     	// damage normal
+    	etc.getLoader().addListener(PluginLoader.Hook.DAMAGE, entityListener, this, PluginListener.Priority.MEDIUM);
     	// death normal
+    	//just use that \/
+    	//etc.getLoader().addListener(PluginLoader.Hook.HEALTH_CHANGE, entityListener, this, PluginListener.Priority.MEDIUM);
     	// mob spawn normal
+    	etc.getLoader().addListener(PluginLoader.Hook.MOB_SPAWN, entityListener, this, PluginListener.Priority.MEDIUM);
     	// player join normal
     	// player leave normal
     	// player chat highest

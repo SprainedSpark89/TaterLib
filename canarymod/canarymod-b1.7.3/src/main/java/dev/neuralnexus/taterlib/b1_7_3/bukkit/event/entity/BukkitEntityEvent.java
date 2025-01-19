@@ -15,7 +15,7 @@ import BukkitPlayer;
 
 /** Bukkit implementation of {@link EntityEvent}. */
 public class BukkitEntityEvent implements EntityEvent {
-    private final org.bukkit.event.entity.EntityEvent event;
+    protected final org.bukkit.event.entity.EntityEvent event;
 
     BukkitEntityEvent(org.bukkit.event.entity.EntityEvent event) {
         this.event = event;
