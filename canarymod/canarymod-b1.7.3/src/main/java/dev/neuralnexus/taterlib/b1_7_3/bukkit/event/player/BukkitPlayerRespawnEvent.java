@@ -3,15 +3,18 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
+/*
 package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player;
 
 import BukkitLocation;
 import BukkitPlayer;
+import BukkitPlayerEvent;
 import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.event.player.PlayerRespawnEvent;
 import dev.neuralnexus.taterapi.world.Location;
 
 /** An implementation of {@link PlayerRespawnEvent} for Bukkit. */
+/*
 public class BukkitPlayerRespawnEvent extends BukkitPlayerEvent implements PlayerRespawnEvent {
     private final org.bukkit.event.player.PlayerRespawnEvent event;
 
@@ -39,4 +42,4 @@ public class BukkitPlayerRespawnEvent extends BukkitPlayerEvent implements Playe
     public boolean isAnchorSpawn() {
         return false;
     }
-}
+}*/

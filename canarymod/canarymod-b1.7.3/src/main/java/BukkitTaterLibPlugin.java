@@ -22,6 +22,7 @@ public class BukkitTaterLibPlugin extends Plugin implements TaterLibPlugin {
 	BukkitBlockListener blockBreakListener = new BukkitBlockListener();
 	BukkitCommandWrapper commandListener = new BukkitCommandWrapper();
 	BukkitEntityListener entityListener = new BukkitEntityListener();
+	BukkitPlayerListener playerListener = new BukkitPlayerListener();
     @Override
     public void enable() {
         // block breaking normal
@@ -37,10 +38,13 @@ public class BukkitTaterLibPlugin extends Plugin implements TaterLibPlugin {
     	// mob spawn normal
     	etc.getLoader().addListener(PluginLoader.Hook.MOB_SPAWN, entityListener, this, PluginListener.Priority.MEDIUM);
     	// player join normal
-    	
+    	etc.getLoader().addListener(PluginLoader.Hook.LOGIN, playerListener, this, PluginListener.Priority.MEDIUM);
     	// player leave normal
+    	etc.getLoader().addListener(PluginLoader.Hook.DISCONNECT, playerListener, this, PluginListener.Priority.MEDIUM);
     	// player chat highest
+    	etc.getLoader().addListener(PluginLoader.Hook.CHAT, playerListener, this, PluginListener.Priority.CRITICAL);
     	// player respawn normal
+    	// not a listener...
     }
 
     @Override

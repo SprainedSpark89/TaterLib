@@ -5,40 +5,36 @@
  */
 
 
-import dev.neuralnexus.taterapi.event.entity.EntityDamageEvent;
+import dev.neuralnexus.taterapi.entity.Entity;
 import dev.neuralnexus.taterapi.event.entity.EntityEvent;
 
-/** Bukkit implementation of {@link EntityDamageEvent}. */
-public class BukkitEntityDamageEvent extends BukkitEntityEvent {
+/** Bukkit implementation of {@link EntityEvent}. */
+public class BukkitEntityEvent {
 	public PluginLoader.DamageType damageType;
 	public BaseEntity attacker;
 	public BaseEntity defender;
 	public int amount;
 	public boolean canceled;
+    protected BaseEntity event;
 
-    public BukkitEntityDamageEvent(PluginLoader.DamageType type, BaseEntity attacker, BaseEntity defender, int amount) {
-        damageType = type;
+    BukkitEntityEvent(BaseEntity event) {
+        this.event = event;
+    }
+    
+    BukkitEntityEvent() {
+    	
+    }
+    
+    BukkitEntityEvent(PluginLoader.DamageType type, BaseEntity attacker, BaseEntity defender, int amount) {
+    	damageType = type;
         this.attacker = attacker;
         this.defender = defender;
         this.amount = amount;
         canceled = false;
         event = null;
     }
-
-    public boolean cancelled() {
-        return canceled;
-    }
-
-    public void setCancelled(boolean cancelled) {
-    	canceled = cancelled;
-    }
-
-    public String cause() {
-        return damageType.name();
-    }
-
-    public double damage() {
-        // Method is ambiguous, time to reflect!
-        return amount;
+    
+    public BaseEntity entity() {
+        return event;
     }
 }

@@ -6,18 +6,17 @@
 
 
 import dev.neuralnexus.taterapi.world.ServerWorld;
-import dev.neuralnexus.taterapi.world.World;
 
 /** Bukkit implementation of {@link World}. */
-public class BukkitServerWorld extends BukkitWorld implements ServerWorld {
-    private final org.bukkit.World world;
+public class BukkitServerWorld extends BukkitWorld {
+    private final World world;
 
     /**
      * Creates a new world.
      *
      * @param world The Bukkit world.
      */
-    public BukkitServerWorld(org.bukkit.World world) {
+    public BukkitServerWorld(World world) {
         super(world);
         this.world = world;
     }
@@ -27,7 +26,7 @@ public class BukkitServerWorld extends BukkitWorld implements ServerWorld {
      *
      * @return The Bukkit world.
      */
-    public org.bukkit.World world() {
+    public World world() {
         return world;
     }
 }

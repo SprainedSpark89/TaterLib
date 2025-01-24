@@ -5,18 +5,13 @@
  */
 
 
-import static dev.neuralnexus.taterlib.bukkit.utils.reflection.Utils.getCommandMap;
-
 import dev.neuralnexus.taterapi.command.Command;
 import dev.neuralnexus.taterapi.event.command.CommandRegisterEvent;
-
-import java.util.Objects;
 
 /** Bukkit implementation of {@link CommandRegisterEvent}. */
 public class BukkitCommandRegisterEvent implements CommandRegisterEvent {
     @Override
     public void registerCommand(Command command, String... aliases) {
-        Objects.requireNonNull(getCommandMap());
-        getCommandMap().register(command.name(), new BukkitCommandWrapper(command));
+    	etc.getInstance().addCommand(command.name(), command.description());
     }
 }

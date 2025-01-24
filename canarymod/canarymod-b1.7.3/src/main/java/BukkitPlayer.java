@@ -8,10 +8,8 @@
 import dev.neuralnexus.taterapi.entity.player.GameMode;
 import dev.neuralnexus.taterapi.entity.player.ServerPlayer;
 import dev.neuralnexus.taterapi.exceptions.VersionFeatureNotSupportedException;
-import dev.neuralnexus.taterapi.item.inventory.PlayerInventory;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.Location;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.item.inventory.BukkitPlayerInventory;
 
 import java.util.UUID;
 
@@ -77,9 +75,8 @@ public class BukkitPlayer extends BukkitLivingEntity implements dev.neuralnexus.
         // data);
     }
 
-    @Override
-    public PlayerInventory inventory() {
-        return new BukkitPlayerInventory(player.getInventory());
+    public PlayerInventory inventory2() {
+        return (new BukkitPlayerInventory((PlayerInventory)player.getInventory())).playerInventory;
     }
 
     @Override
@@ -131,4 +128,10 @@ public class BukkitPlayer extends BukkitLivingEntity implements dev.neuralnexus.
     @Override
     public void setGameMode(GameMode gameMode) {
     }
+
+	@Override
+	public dev.neuralnexus.taterapi.item.inventory.PlayerInventory inventory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

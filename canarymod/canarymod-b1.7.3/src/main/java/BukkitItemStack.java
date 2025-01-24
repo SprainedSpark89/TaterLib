@@ -3,29 +3,26 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.item.inventory;
+
 
 import dev.neuralnexus.taterapi.exceptions.VersionFeatureNotSupportedException;
-import dev.neuralnexus.taterapi.item.inventory.ItemStack;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
-
-import org.bukkit.Material;
 
 import java.util.List;
 import java.util.Optional;
 
 /** Abstracts a Bukkit item stack to an AbstractItemStack. */
-public class BukkitItemStack implements ItemStack {
-    private final org.bukkit.inventory.ItemStack itemStack;
+public class BukkitItemStack implements dev.neuralnexus.taterapi.item.inventory.ItemStack {
+    private final Item itemStack;
 
     /**
      * Constructor.
      *
      * @param itemStack The Bukkit item stack.
      */
-    public BukkitItemStack(org.bukkit.inventory.ItemStack itemStack) {
+    public BukkitItemStack(Item itemStack) {
         this.itemStack =
-                itemStack == null ? new org.bukkit.inventory.ItemStack(Material.AIR) : itemStack;
+                itemStack == null ? new Item(Item.Type.Air) : itemStack;
     }
 
     /**
@@ -33,7 +30,7 @@ public class BukkitItemStack implements ItemStack {
      *
      * @return The Bukkit item stack.
      */
-    public org.bukkit.inventory.ItemStack itemStack() {
+    public Item itemStack() {
         return itemStack;
     }
 
@@ -54,8 +51,8 @@ public class BukkitItemStack implements ItemStack {
 
     @Override
     @SuppressWarnings("MethodDoesntCallSuperMethod")
-    public ItemStack clone() {
-        return new BukkitItemStack(itemStack.clone());
+    public dev.neuralnexus.taterapi.item.inventory.ItemStack clone() {
+        return new BukkitItemStack(itemStack);
     }
 
     @Override

@@ -52,7 +52,7 @@ public class BukkitEntity implements dev.neuralnexus.taterapi.entity.Entity {
     @Override
     public ResourceKey type() {
         return ResourceKey.of(
-                "minecraft", OEnumMobType.b(((CraftEntity) entity).getHandle()).toLowerCase());
+                "minecraft", OEntityList.b(entity.getEntity()).toLowerCase());
     }
 
     @Override

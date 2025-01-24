@@ -34,7 +34,7 @@ public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
     }
 
     @Override
-    public List<Player> onlinePlayers() {
+    public List onlinePlayers() {
         return etc.getServer().getPlayerList();
     }
 
@@ -76,7 +76,7 @@ public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
     }
 
     @Override
-    public List<World> worlds() {
+    public List worlds() {
     	List<World> worlds = new ArrayList<World>();
     	worlds.add(etc.getServer().getWorld(0));
     	worlds.add(etc.getServer().getWorld(-1));

@@ -5,23 +5,23 @@
  */
 
 
-import dev.neuralnexus.taterapi.event.player.PlayerLoginEvent;
+import dev.neuralnexus.taterapi.event.player.PlayerLogoutEvent;
 
-/** Bukkit implementation of {@link PlayerLoginEvent}. */
-public class BukkitPlayerLoginEvent extends BukkitPlayerEvent {
+/** Bukkit implementation of {@link PlayerLogoutEvent}. */
+public class BukkitPlayerLogoutEvent extends BukkitPlayerEvent {
     private final Player event;
 
-    public BukkitPlayerLoginEvent(Player event) {
+    public BukkitPlayerLogoutEvent(Player event) {
         super();
         this.event = event;
     }
 
     
-    public String loginMessage() {
-        return event.getName() + " joined the game.";
+    public String logoutMessage() {
+    	return event.getName() + " left the game.";
     }
 
     
-    public void setLoginMessage(String message) {
+    public void setLogoutMessage(String message) {
     }
 }

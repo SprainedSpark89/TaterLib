@@ -3,75 +3,70 @@
  * The project is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE">GPL-3</a>
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.item.inventory;
 
-import dev.neuralnexus.taterapi.item.inventory.Inventory;
-import dev.neuralnexus.taterapi.item.inventory.ItemStack;
 import dev.neuralnexus.taterapi.resource.ResourceKey;
-
-import org.bukkit.Material;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /** Bukkit implementation of {@link Inventory}. */
-public class BukkitInventory implements Inventory {
-    private final org.bukkit.inventory.Inventory inventory;
+public class BukkitInventory implements dev.neuralnexus.taterapi.item.inventory.Inventory {
+    private final Inventory inventory;
 
     /**
      * Constructor.
      *
      * @param inventory The Bukkit inventory.
      */
-    public BukkitInventory(org.bukkit.inventory.Inventory inventory) {
+    public BukkitInventory(Inventory inventory) {
         this.inventory = inventory;
     }
 
     @Override
     public int size() {
-        return inventory.getSize();
+        return inventory.getContentsSize();
     }
 
     @Override
-    public ItemStack get(int slot) {
-        return inventory.getItem(slot) == null
+    public dev.neuralnexus.taterapi.item.inventory.ItemStack get(int slot) {
+        return inventory.getItemFromId(slot) == null
                 ? null
-                : new BukkitItemStack(inventory.getItem(slot));
+                : new BukkitItemStack(inventory.getItemFromId(slot));
     }
 
     @Override
-    public void set(int slot, ItemStack item) {
-        inventory.setItem(slot, ((BukkitItemStack) item).itemStack());
+    public void set(int slot, dev.neuralnexus.taterapi.item.inventory.ItemStack item) {
+        inventory.setSlot(((BukkitItemStack) item).itemStack(), slot);
     }
 
     @Override
-    public void add(ItemStack item) {
+    public void add(dev.neuralnexus.taterapi.item.inventory.ItemStack item) {
         inventory.addItem(((BukkitItemStack) item).itemStack());
     }
 
     @Override
-    public List<ItemStack> contents() {
+    public List<dev.neuralnexus.taterapi.item.inventory.ItemStack> contents() {
         return Arrays.stream(inventory.getContents())
                 .map(item -> item == null ? null : new BukkitItemStack(item))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void setContents(List<ItemStack> items) {
+    public void setContents(List<dev.neuralnexus.taterapi.item.inventory.ItemStack> items) {
         inventory.setContents(
                 items.stream()
                         .map(item -> item == null ? null : ((BukkitItemStack) item).itemStack())
-                        .toArray(org.bukkit.inventory.ItemStack[]::new));
+                        .toArray(Item[]::new));
     }
 
     @Override
     public void remove(ResourceKey type) {
-        inventory.remove(Material.valueOf(type.value().toUpperCase()));
+        
     }
 
     @Override
     public void clear(int slot) {
-        inventory.clear(slot);
+        inventory.removeItem(slot);
     }
 }

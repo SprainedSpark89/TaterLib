@@ -38,7 +38,7 @@ public class BukkitWorld implements dev.neuralnexus.taterapi.world.World {
     }
 
     @Override
-    public List<Player> players() {
+    public List players() {
     	List<Player> players = new ArrayList<Player>();
     	for(LivingEntity entity : world.getLivingEntityList()) {
     		if(entity instanceof Player) {

@@ -7,9 +7,6 @@
 
 import dev.neuralnexus.taterapi.event.api.EntityEvents;
 import dev.neuralnexus.taterapi.event.api.PlayerEvents;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityDeathEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerDeathEvent;
-
 /** Listens for entity events. */
 public class BukkitEntityListener extends PluginListener {
     /**

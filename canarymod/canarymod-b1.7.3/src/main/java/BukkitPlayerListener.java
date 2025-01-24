@@ -6,22 +6,16 @@
 
 
 import dev.neuralnexus.taterapi.event.api.PlayerEvents;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerLogoutEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerMessageEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player.BukkitPlayerRespawnEvent;
-
-import org.bukkit.event.player.*;
 
 /** Listens for player events. */
-public class BukkitPlayerListener extends PlayerListener {
+public class BukkitPlayerListener extends PluginListener {
     /**
      * Called when a player logs in.
      *
      * @param event The event.
      */
-    @Override
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        PlayerEvents.LOGIN.invoke(new BukkitPlayerLoginEvent(event));
+	public void onLogin(Player player) {
+		PlayerEvents.LOGIN.invoke(new BukkitPlayerLoginEvent(player));
     }
 
     /**
@@ -29,9 +23,8 @@ public class BukkitPlayerListener extends PlayerListener {
      *
      * @param event The event.
      */
-    @Override
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        PlayerEvents.LOGOUT.invoke(new BukkitPlayerLogoutEvent(event));
+    public void onDisconnect(Player player) {
+    	PlayerEvents.LOGOUT.invoke(new BukkitPlayerLogoutEvent(player));
     }
 
     /**
@@ -39,9 +32,10 @@ public class BukkitPlayerListener extends PlayerListener {
      *
      * @param event The event.
      */
-    @Override
-    public void onPlayerChat(PlayerChatEvent event) {
-        PlayerEvents.MESSAGE.invoke(new BukkitPlayerMessageEvent(event));
+    
+    public boolean onChat(Player player, String message) {
+    	PlayerEvents.MESSAGE.invoke(new BukkitPlayerMessageEvent(player, message));
+        return false;
     }
 
     /**
@@ -49,8 +43,4 @@ public class BukkitPlayerListener extends PlayerListener {
      *
      * @param event The event.
      */
-    @Override
-    public void onPlayerRespawn(PlayerRespawnEvent event) {
-        PlayerEvents.RESPAWN.invoke(new BukkitPlayerRespawnEvent(event));
-    }
 }
