@@ -10,16 +10,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Bukkit implementation of {@link Inventory}. */
-public class BukkitInventory implements dev.neuralnexus.taterapi.item.inventory.Inventory {
+/** CanaryMod implementation of {@link Inventory}. */
+public class CanaryModInventory implements dev.neuralnexus.taterapi.item.inventory.Inventory {
     private final Inventory inventory;
 
     /**
      * Constructor.
      *
-     * @param inventory The Bukkit inventory.
+     * @param inventory The CanaryMod inventory.
      */
-    public BukkitInventory(Inventory inventory) {
+    public CanaryModInventory(Inventory inventory) {
         this.inventory = inventory;
     }
 
@@ -32,23 +32,23 @@ public class BukkitInventory implements dev.neuralnexus.taterapi.item.inventory.
     public dev.neuralnexus.taterapi.item.inventory.ItemStack get(int slot) {
         return inventory.getItemFromId(slot) == null
                 ? null
-                : new BukkitItemStack(inventory.getItemFromId(slot));
+                : new CanaryModItemStack(inventory.getItemFromId(slot));
     }
 
     @Override
     public void set(int slot, dev.neuralnexus.taterapi.item.inventory.ItemStack item) {
-        inventory.setSlot(((BukkitItemStack) item).itemStack(), slot);
+        inventory.setSlot(((CanaryModItemStack) item).itemStack(), slot);
     }
 
     @Override
     public void add(dev.neuralnexus.taterapi.item.inventory.ItemStack item) {
-        inventory.addItem(((BukkitItemStack) item).itemStack());
+        inventory.addItem(((CanaryModItemStack) item).itemStack());
     }
 
     @Override
     public List<dev.neuralnexus.taterapi.item.inventory.ItemStack> contents() {
         return Arrays.stream(inventory.getContents())
-                .map(item -> item == null ? null : new BukkitItemStack(item))
+                .map(item -> item == null ? null : new CanaryModItemStack(item))
                 .collect(Collectors.toList());
     }
 
@@ -56,7 +56,7 @@ public class BukkitInventory implements dev.neuralnexus.taterapi.item.inventory.
     public void setContents(List<dev.neuralnexus.taterapi.item.inventory.ItemStack> items) {
         inventory.setContents(
                 items.stream()
-                        .map(item -> item == null ? null : ((BukkitItemStack) item).itemStack())
+                        .map(item -> item == null ? null : ((CanaryModItemStack) item).itemStack())
                         .toArray(Item[]::new));
     }
 

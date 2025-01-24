@@ -7,18 +7,18 @@
 
 import dev.neuralnexus.taterapi.event.block.BlockEvent;
 
-/** Bukkit implementation of {@link BlockEvent}. */
-public class BukkitBlockEvent implements BlockEvent {
+/** CanaryMod implementation of {@link BlockEvent}. */
+public class CanaryModBlockEvent implements BlockEvent {
 	public final Player player;
     public final Block block;
 
-    public BukkitBlockEvent(Player player, Block block) {
+    public CanaryModBlockEvent(Player player, Block block) {
         this.player = player;
         this.block = block;
     }
 
     @Override
     public dev.neuralnexus.taterapi.block.Block block() {
-        return new BukkitBlock(block);
+        return new CanaryModBlock(block);
     }
 }

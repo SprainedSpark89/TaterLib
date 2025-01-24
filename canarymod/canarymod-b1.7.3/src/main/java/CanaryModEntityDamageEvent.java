@@ -6,17 +6,16 @@
 
 
 import dev.neuralnexus.taterapi.event.entity.EntityDamageEvent;
-import dev.neuralnexus.taterapi.event.entity.EntityEvent;
 
-/** Bukkit implementation of {@link EntityDamageEvent}. */
-public class BukkitEntityDamageEvent extends BukkitEntityEvent {
+/** CanaryMod implementation of {@link EntityDamageEvent}. */
+public class CanaryModEntityDamageEvent extends CanaryModEntityEvent {
 	public PluginLoader.DamageType damageType;
 	public BaseEntity attacker;
 	public BaseEntity defender;
 	public int amount;
 	public boolean canceled;
 
-    public BukkitEntityDamageEvent(PluginLoader.DamageType type, BaseEntity attacker, BaseEntity defender, int amount) {
+    public CanaryModEntityDamageEvent(PluginLoader.DamageType type, BaseEntity attacker, BaseEntity defender, int amount) {
         damageType = type;
         this.attacker = attacker;
         this.defender = defender;

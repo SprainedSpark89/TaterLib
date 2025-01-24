@@ -11,24 +11,24 @@ import dev.neuralnexus.taterapi.resource.ResourceKey;
 import java.util.List;
 import java.util.Optional;
 
-/** Abstracts a Bukkit item stack to an AbstractItemStack. */
-public class BukkitItemStack implements dev.neuralnexus.taterapi.item.inventory.ItemStack {
+/** Abstracts a CanaryMod item stack to an AbstractItemStack. */
+public class CanaryModItemStack implements dev.neuralnexus.taterapi.item.inventory.ItemStack {
     private final Item itemStack;
 
     /**
      * Constructor.
      *
-     * @param itemStack The Bukkit item stack.
+     * @param itemStack The CanaryMod item stack.
      */
-    public BukkitItemStack(Item itemStack) {
+    public CanaryModItemStack(Item itemStack) {
         this.itemStack =
                 itemStack == null ? new Item(Item.Type.Air) : itemStack;
     }
 
     /**
-     * Getter for the Bukkit item stack.
+     * Getter for the CanaryMod item stack.
      *
-     * @return The Bukkit item stack.
+     * @return The CanaryMod item stack.
      */
     public Item itemStack() {
         return itemStack;
@@ -50,9 +50,8 @@ public class BukkitItemStack implements dev.neuralnexus.taterapi.item.inventory.
     }
 
     @Override
-    @SuppressWarnings("MethodDoesntCallSuperMethod")
     public dev.neuralnexus.taterapi.item.inventory.ItemStack clone() {
-        return new BukkitItemStack(itemStack);
+        return new CanaryModItemStack(itemStack);
     }
 
     @Override

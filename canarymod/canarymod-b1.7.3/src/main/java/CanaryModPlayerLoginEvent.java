@@ -7,11 +7,11 @@
 
 import dev.neuralnexus.taterapi.event.player.PlayerLoginEvent;
 
-/** Bukkit implementation of {@link PlayerLoginEvent}. */
-public class BukkitPlayerLoginEvent extends BukkitPlayerEvent {
+/** CanaryMod implementation of {@link PlayerLoginEvent}. */
+public class CanaryModPlayerLoginEvent extends CanaryModPlayerEvent {
     private final Player event;
 
-    public BukkitPlayerLoginEvent(Player event) {
+    public CanaryModPlayerLoginEvent(Player event) {
         super();
         this.event = event;
     }

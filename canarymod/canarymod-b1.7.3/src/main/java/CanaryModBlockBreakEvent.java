@@ -7,13 +7,13 @@
 
 import dev.neuralnexus.taterapi.event.block.PlayerBlockBreakEvent;
 
-/** Bukkit implementation of {@link PlayerBlockBreakEvent}. */
-public class BukkitBlockBreakEvent extends BukkitBlockEvent implements PlayerBlockBreakEvent {
+/** CanaryMod implementation of {@link PlayerBlockBreakEvent}. */
+public class CanaryModBlockBreakEvent extends CanaryModBlockEvent implements PlayerBlockBreakEvent {
     public final Player player;
     public final Block block;
     public boolean cancel = false;
 
-    public BukkitBlockBreakEvent(Player player, Block block) {
+    public CanaryModBlockBreakEvent(Player player, Block block) {
         super(player, block);
         this.player = player;
         this.block = block;
@@ -31,6 +31,6 @@ public class BukkitBlockBreakEvent extends BukkitBlockEvent implements PlayerBlo
 
     @Override
     public dev.neuralnexus.taterapi.entity.player.Player player() {
-        return new BukkitPlayer(player);
+        return new CanaryModPlayer(player);
     }
 }

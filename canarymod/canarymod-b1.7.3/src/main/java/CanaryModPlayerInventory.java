@@ -12,16 +12,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Bukkit implementation of {@link PlayerInventory}. */
-public class BukkitPlayerInventory extends BukkitInventory {
+/** CanaryMod implementation of {@link PlayerInventory}. */
+public class CanaryModPlayerInventory extends CanaryModInventory {
     public final PlayerInventory playerInventory;
 
     /**
      * Constructor.
      *
-     * @param playerInventory The Bukkit player inventory.
+     * @param playerInventory The CanaryMod player inventory.
      */
-    public BukkitPlayerInventory(PlayerInventory playerInventory) {
+    public CanaryModPlayerInventory(PlayerInventory playerInventory) {
         super(playerInventory);
         this.playerInventory = playerInventory;
     }
@@ -29,7 +29,7 @@ public class BukkitPlayerInventory extends BukkitInventory {
     
     public List<ItemStack> armor() {
         return Arrays.stream(playerInventory.getContents())
-                .map(BukkitItemStack::new)
+                .map(CanaryModItemStack::new)
                 .collect(Collectors.toList());
     }
 

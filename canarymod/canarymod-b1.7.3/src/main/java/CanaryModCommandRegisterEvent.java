@@ -8,8 +8,8 @@
 import dev.neuralnexus.taterapi.command.Command;
 import dev.neuralnexus.taterapi.event.command.CommandRegisterEvent;
 
-/** Bukkit implementation of {@link CommandRegisterEvent}. */
-public class BukkitCommandRegisterEvent implements CommandRegisterEvent {
+/** CanaryMod implementation of {@link CommandRegisterEvent}. */
+public class CanaryModCommandRegisterEvent implements CommandRegisterEvent {
     @Override
     public void registerCommand(Command command, String... aliases) {
     	etc.getInstance().addCommand(command.name(), command.description());

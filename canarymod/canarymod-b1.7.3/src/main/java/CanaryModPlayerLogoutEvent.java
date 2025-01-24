@@ -7,11 +7,11 @@
 
 import dev.neuralnexus.taterapi.event.player.PlayerLogoutEvent;
 
-/** Bukkit implementation of {@link PlayerLogoutEvent}. */
-public class BukkitPlayerLogoutEvent extends BukkitPlayerEvent {
+/** CanaryMod implementation of {@link PlayerLogoutEvent}. */
+public class CanaryModPlayerLogoutEvent extends CanaryModPlayerEvent {
     private final Player event;
 
-    public BukkitPlayerLogoutEvent(Player event) {
+    public CanaryModPlayerLogoutEvent(Player event) {
         super();
         this.event = event;
     }

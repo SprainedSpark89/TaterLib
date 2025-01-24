@@ -8,7 +8,7 @@
 import dev.neuralnexus.taterapi.event.api.EntityEvents;
 import dev.neuralnexus.taterapi.event.api.PlayerEvents;
 /** Listens for entity events. */
-public class BukkitEntityListener extends PluginListener {
+public class CanaryModEntityListener extends PluginListener {
     /**
      * Called when an entity is damaged.
      *
@@ -16,7 +16,7 @@ public class BukkitEntityListener extends PluginListener {
      */
 	
 	public boolean onDamage(PluginLoader.DamageType type, BaseEntity attacker, BaseEntity defender, int amount) {
-		EntityEvents.DAMAGE.invoke(new BukkitEntityDamageEvent(type, attacker, defender, amount));
+		EntityEvents.DAMAGE.invoke(new CanaryModEntityDamageEvent(type, attacker, defender, amount));
 		return false;
     }
 
@@ -27,7 +27,7 @@ public class BukkitEntityListener extends PluginListener {
     //    @EventHandler
     //    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
     //        EntityListener.onEntityDamageByEntity(new
-    // BukkitEntityDamageEvent.DamageByEntity(event));
+    // CanaryModEntityDamageEvent.DamageByEntity(event));
     //    }
     //
     //    /**
@@ -37,7 +37,7 @@ public class BukkitEntityListener extends PluginListener {
     //    @EventHandler
     //    public void onEntityDamageByBlock(EntityDamageByBlockEvent event) {
     //        EntityListener.onEntityDamageByBlock(new
-    // BukkitEntityDamageEvent.DamageByBlock(event));
+    // CanaryModEntityDamageEvent.DamageByBlock(event));
     //    }
 
     /**
@@ -47,11 +47,11 @@ public class BukkitEntityListener extends PluginListener {
      */
     /*@Override
     public void onEntityDeath(EntityDeathEvent event) {
-        EntityEvents.DEATH.invoke(new BukkitEntityDeathEvent(event));
+        EntityEvents.DEATH.invoke(new CanaryModEntityDeathEvent(event));
 
         // Check if the entity is a player
         if (event.getEntity() instanceof Player) {
-            PlayerEvents.DEATH.invoke(new BukkitPlayerDeathEvent(event));
+            PlayerEvents.DEATH.invoke(new CanaryModPlayerDeathEvent(event));
         }
     }*/
 
@@ -61,7 +61,7 @@ public class BukkitEntityListener extends PluginListener {
      * @param event The event.
      */
     public boolean onMobSpawn(Mob mob) {
-    	EntityEvents.SPAWN.invoke(new BukkitEntitySpawnEvent(mob));
+    	EntityEvents.SPAWN.invoke(new CanaryModEntitySpawnEvent(mob));
         return false;
     }
 }

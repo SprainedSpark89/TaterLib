@@ -8,16 +8,16 @@
 import dev.neuralnexus.taterapi.world.BlockPos;
 import dev.neuralnexus.taterapi.world.Location;
 
-/** Bukkit implementation of {@link Location}. */
-public class BukkitLocation implements Location {
+/** CanaryMod implementation of {@link Location}. */
+public class CanaryModLocation implements Location {
     private final Location location;
 
     /** Creates a new location. */
-    public BukkitLocation(Location location) {
+    public CanaryModLocation(Location location) {
         this.location = location;
     }
 
-    public BukkitLocation(double x, double y, double z, float pitch, float rotation) {
+    public CanaryModLocation(double x, double y, double z, float pitch, float rotation) {
 		this.location = null;
 		// TODO Auto-generated constructor stub
     	setX(x);
@@ -69,11 +69,11 @@ public class BukkitLocation implements Location {
 
     @Override
     public dev.neuralnexus.taterapi.world.World world() {
-        return new BukkitWorld((World)location.world());
+        return new CanaryModWorld((World)location.world());
     }
 
     @Override
     public void setWorld(dev.neuralnexus.taterapi.world.World world) {
-        location.setWorld((dev.neuralnexus.taterapi.world.World)((BukkitWorld) world).world());
+        location.setWorld((dev.neuralnexus.taterapi.world.World)((CanaryModWorld) world).world());
     }
 }

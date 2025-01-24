@@ -9,11 +9,11 @@
 import dev.neuralnexus.taterapi.resource.ResourceKey;
 import dev.neuralnexus.taterapi.world.BlockPos;
 
-/** Bukkit implementation of {@link Block}. */
-public class BukkitBlock implements dev.neuralnexus.taterapi.block.Block {
+/** CanaryMod implementation of {@link Block}. */
+public class CanaryModBlock implements dev.neuralnexus.taterapi.block.Block {
     public final Block block;
 
-    public BukkitBlock(Block block) {
+    public CanaryModBlock(Block block) {
         this.block = block;
     }
 

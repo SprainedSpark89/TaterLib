@@ -9,8 +9,8 @@ import dev.neuralnexus.taterapi.command.CommandSender;
 
 import java.util.UUID;
 
-/** Bukkit implementation of {@link CommandSender} */
-public class BukkitCommandSender implements CommandSender {
+/** CanaryMod implementation of {@link CommandSender} */
+public class CanaryModCommandSender implements CommandSender {
     
 
     

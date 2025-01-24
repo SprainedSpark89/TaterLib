@@ -8,16 +8,16 @@
 import dev.neuralnexus.taterapi.entity.Entity;
 import dev.neuralnexus.taterapi.exceptions.VersionFeatureNotSupportedException;
 
-/** Bukkit implementation of {@link LivingEntity}. */
-public class BukkitLivingEntity extends BukkitEntity implements dev.neuralnexus.taterapi.entity.LivingEntity {
+/** CanaryMod implementation of {@link LivingEntity}. */
+public class CanaryModLivingEntity extends CanaryModEntity implements dev.neuralnexus.taterapi.entity.LivingEntity {
     private final LivingEntity entity;
 
     /**
      * Constructor.
      *
-     * @param entity The Bukkit entity.
+     * @param entity The CanaryMod entity.
      */
-    public BukkitLivingEntity(LivingEntity entity) {
+    public CanaryModLivingEntity(LivingEntity entity) {
         super(entity);
         this.entity = entity;
     }

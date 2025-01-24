@@ -4,30 +4,30 @@
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
 /*
-package dev.neuralnexus.taterlib.b1_7_3.bukkit.event.player;
+package dev.neuralnexus.taterlib.b1_7_3.CanaryMod.event.player;
 
 import dev.neuralnexus.taterapi.entity.player.Player;
 import dev.neuralnexus.taterapi.event.player.PlayerDeathEvent;
-import dev.neuralnexus.taterlib.b1_7_3.bukkit.event.entity.BukkitEntityDeathEvent;
+import dev.neuralnexus.taterlib.b1_7_3.CanaryMod.event.entity.CanaryModEntityDeathEvent;
 
-import org.bukkit.event.entity.EntityDeathEvent;
+import org.CanaryMod.event.entity.EntityDeathEvent;
 
-import BukkitPlayer;
+import CanaryModPlayer;
 
-/** Bukkit implementation of {@link PlayerDeathEvent}. */
+/** CanaryMod implementation of {@link PlayerDeathEvent}. */
 /*
-public class BukkitPlayerDeathEvent extends BukkitEntityDeathEvent implements PlayerDeathEvent {
+public class CanaryModPlayerDeathEvent extends CanaryModEntityDeathEvent implements PlayerDeathEvent {
     private final EntityDeathEvent event;
     private String deathMessage = "";
 
-    public BukkitPlayerDeathEvent(EntityDeathEvent event) {
+    public CanaryModPlayerDeathEvent(EntityDeathEvent event) {
         super(event);
         this.event = event;
     }
 
     @Override
     public Player player() {
-        return new BukkitPlayer((org.bukkit.entity.Player) event.getEntity());
+        return new CanaryModPlayer((org.CanaryMod.entity.Player) event.getEntity());
     }
 
     @Override

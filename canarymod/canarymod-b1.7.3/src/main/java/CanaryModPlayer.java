@@ -13,24 +13,24 @@ import dev.neuralnexus.taterapi.world.Location;
 
 import java.util.UUID;
 
-/** Bukkit implementation of {@link Player}. */
-public class BukkitPlayer extends BukkitLivingEntity implements dev.neuralnexus.taterapi.entity.player.Player, ServerPlayer {
+/** CanaryMod implementation of {@link Player}. */
+public class CanaryModPlayer extends CanaryModLivingEntity implements dev.neuralnexus.taterapi.entity.player.Player, ServerPlayer {
     private final Player player;
 
     /**
      * Constructor.
      *
-     * @param player The Bukkit player.
+     * @param player The CanaryMod player.
      */
-    public BukkitPlayer(Player player) {
+    public CanaryModPlayer(Player player) {
         super(player);
         this.player = player;
     }
 
     /**
-     * Gets the Bukkit player
+     * Gets the CanaryMod player
      *
-     * @return The Bukkit player
+     * @return The CanaryMod player
      */
     public Player player() {
         return player;
@@ -76,7 +76,7 @@ public class BukkitPlayer extends BukkitLivingEntity implements dev.neuralnexus.
     }
 
     public PlayerInventory inventory2() {
-        return (new BukkitPlayerInventory((PlayerInventory)player.getInventory())).playerInventory;
+        return (new CanaryModPlayerInventory((PlayerInventory)player.getInventory())).playerInventory;
     }
 
     @Override
@@ -95,7 +95,7 @@ public class BukkitPlayer extends BukkitLivingEntity implements dev.neuralnexus.
     public void setSpawn(Location location, boolean forced) {
         // TODO: Write a module to set bed spawns/respawn points
         throw new VersionFeatureNotSupportedException();
-        //        player.setBedSpawnLocation(BukkitConversions.locationFromPosition(position),
+        //        player.setBedSpawnLocation(CanaryModConversions.locationFromPosition(position),
         // forced);
     }
 

@@ -5,26 +5,22 @@
  */
 
 
-import dev.neuralnexus.taterapi.entity.player.SimplePlayer;
 import dev.neuralnexus.taterapi.exceptions.VersionFeatureNotSupportedException;
-import dev.neuralnexus.taterapi.world.ServerWorld;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
-import java.util.stream.Collectors;
 import java.io.File;
 
-/** Bukkit implementation of {@link Server}. */
-public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
-    private static final BukkitServer instance = new BukkitServer();
+/** CanaryMod implementation of {@link Server}. */
+public class CanaryModServer implements dev.neuralnexus.taterapi.server.Server {
+    private static final CanaryModServer instance = new CanaryModServer();
 
-    public static BukkitServer instance() {
+    public static CanaryModServer instance() {
         return instance;
     }
 
@@ -33,7 +29,8 @@ public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
         throw new VersionFeatureNotSupportedException();
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public List onlinePlayers() {
         return etc.getServer().getPlayerList();
     }
@@ -52,7 +49,6 @@ public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
         ArrayList<Player> array = new ArrayList<Player>();
         try {
             Scanner scanner = new Scanner(new File(location));
-            int i = 0;
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 if (line.startsWith("#") || line.equals("") || line.startsWith("﻿")) {
@@ -60,7 +56,6 @@ public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
                 }
                 etc.getInstance();
 				array.add(etc.getDataSource().getPlayer(line));
-                i++;
             }
             scanner.close();
         } catch (Exception e) {
@@ -75,7 +70,8 @@ public class BukkitServer implements dev.neuralnexus.taterapi.server.Server {
         return Collections.emptyMap();
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public List worlds() {
     	List<World> worlds = new ArrayList<World>();
     	worlds.add(etc.getServer().getWorld(0));

@@ -7,24 +7,24 @@
 
 import dev.neuralnexus.taterapi.command.Command;
 
-/** Wraps a command callback into a Bukkit CommandExecutor. */
-public class BukkitCommandWrapper extends PluginListener {
+/** Wraps a command callback into a CanaryMod CommandExecutor. */
+public class CanaryModCommandWrapper extends PluginListener {
     private final Command command;
 
-    public BukkitCommandWrapper(Command command) {
+    public CanaryModCommandWrapper(Command command) {
         this.command = command;
     }
     
-    public BukkitCommandWrapper() {
+    public CanaryModCommandWrapper() {
 		this.command = null;
 	}
 
 	public boolean onCommand(Player player, String[] split) {
-        return command.execute(new BukkitPlayer(player), split[0], removeFirst(split));
+        return command.execute(new CanaryModPlayer(player), split[0], removeFirst(split));
     }
     
     public boolean onConsoleCommand(String[] split) {
-    	return command.execute(new BukkitCommandSender(), split[0], removeFirst(split));
+    	return command.execute(new CanaryModCommandSender(), split[0], removeFirst(split));
     }
     
     public static String[] removeFirst(String[] input) {
@@ -45,8 +45,8 @@ public class BukkitCommandWrapper extends PluginListener {
     /*@Override
     public boolean execute(CommandSender sender, String label, String[] args) {
         if (sender instanceof Player) {
-            return command.execute(new BukkitPlayer((Player) sender), label, args);
+            return command.execute(new CanaryModPlayer((Player) sender), label, args);
         }
-        return command.execute(new BukkitCommandSender(sender), label, args);
+        return command.execute(new CanaryModCommandSender(sender), label, args);
     }*/
 }

@@ -18,11 +18,11 @@ import dev.neuralnexus.taterapi.loader.Loader;
 import dev.neuralnexus.taterlib.TaterLibPlugin;
 
 @SuppressWarnings("unused")
-public class BukkitTaterLibPlugin extends Plugin implements TaterLibPlugin {
-	BukkitBlockListener blockBreakListener = new BukkitBlockListener();
-	BukkitCommandWrapper commandListener = new BukkitCommandWrapper();
-	BukkitEntityListener entityListener = new BukkitEntityListener();
-	BukkitPlayerListener playerListener = new BukkitPlayerListener();
+public class TaterLibB1_7_3CanaryMod extends Plugin implements TaterLibPlugin {
+	CanaryModBlockListener blockBreakListener = new CanaryModBlockListener();
+	CanaryModCommandWrapper commandListener = new CanaryModCommandWrapper();
+	CanaryModEntityListener entityListener = new CanaryModEntityListener();
+	CanaryModPlayerListener playerListener = new CanaryModPlayerListener();
     @Override
     public void enable() {
         // block breaking normal

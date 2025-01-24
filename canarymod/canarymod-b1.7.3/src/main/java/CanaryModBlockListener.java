@@ -8,14 +8,14 @@
 import dev.neuralnexus.taterapi.event.api.BlockEvents;
 
 /** Listens for world events. */
-public class BukkitBlockListener extends PluginListener {
+public class CanaryModBlockListener extends PluginListener {
     /**
      * Called when a block is broken.
      *
      * @param event The event.
      */
 	public boolean onBlockBreak(final Player player, final Block block) {
-		BlockEvents.PLAYER_BLOCK_BREAK.invoke(new BukkitBlockBreakEvent(player, block));
-		return ((BukkitBlockBreakEvent)(BlockEvents.PLAYER_BLOCK_BREAK.listeners().get(0))).cancel;
+		BlockEvents.PLAYER_BLOCK_BREAK.invoke(new CanaryModBlockBreakEvent(player, block));
+		return ((CanaryModBlockBreakEvent)(BlockEvents.PLAYER_BLOCK_BREAK.listeners().get(0))).cancel;
 	}
 }

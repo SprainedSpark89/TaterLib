@@ -8,12 +8,12 @@
 import dev.neuralnexus.taterapi.event.entity.EntitySpawnEvent;
 import dev.neuralnexus.taterapi.world.Location;
 
-/** Bukkit implementation of {@link EntitySpawnEvent}. */
-public class BukkitEntitySpawnEvent extends BukkitEntityEvent {
+/** CanaryMod implementation of {@link EntitySpawnEvent}. */
+public class CanaryModEntitySpawnEvent extends CanaryModEntityEvent {
     private final Mob event;
     boolean stop = false;
 
-    public BukkitEntitySpawnEvent(Mob event) {
+    public CanaryModEntitySpawnEvent(Mob event) {
         //super(event);
         this.event = event;
     }
@@ -30,6 +30,6 @@ public class BukkitEntitySpawnEvent extends BukkitEntityEvent {
 
     
     public Location location() {
-        return new BukkitLocation(event.getX(), event.getY(), event.getX(), event.getPitch(), event.getRotation());
+        return new CanaryModLocation(event.getX(), event.getY(), event.getX(), event.getPitch(), event.getRotation());
     }
 }

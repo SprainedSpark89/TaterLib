@@ -9,15 +9,14 @@ import dev.neuralnexus.taterapi.entity.player.SimplePlayer;
 import dev.neuralnexus.taterapi.event.player.PlayerMessageEvent;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
-/** Bukkit implementation of {@link PlayerMessageEvent}. */
-public class BukkitPlayerMessageEvent extends BukkitPlayerEvent {
+/** CanaryMod implementation of {@link PlayerMessageEvent}. */
+public class CanaryModPlayerMessageEvent extends CanaryModPlayerEvent {
     private Player event;
     private String message;
     public boolean cancel = false;
 
-    public BukkitPlayerMessageEvent(Player event, String message) {
+    public CanaryModPlayerMessageEvent(Player event, String message) {
         this.event = event;
     }
 

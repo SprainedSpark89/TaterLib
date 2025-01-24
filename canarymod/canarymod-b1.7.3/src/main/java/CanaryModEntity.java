@@ -12,23 +12,23 @@ import dev.neuralnexus.taterapi.world.Location;
 import java.util.Optional;
 import java.util.UUID;
 
-/** Bukkit implementation of {@link Entity}. */
-public class BukkitEntity implements dev.neuralnexus.taterapi.entity.Entity {
+/** CanaryMod implementation of {@link Entity}. */
+public class CanaryModEntity implements dev.neuralnexus.taterapi.entity.Entity {
     private final BaseEntity entity;
 
     /**
      * Constructor.
      *
-     * @param entity The Bukkit entity.
+     * @param entity The CanaryMod entity.
      */
-    public BukkitEntity(BaseEntity entity) {
+    public CanaryModEntity(BaseEntity entity) {
         this.entity = entity;
     }
 
     /**
-     * Gets the Bukkit entity.
+     * Gets the CanaryMod entity.
      *
-     * @return The Bukkit entity.
+     * @return The CanaryMod entity.
      */
     public BaseEntity entity() {
         return entity;
@@ -68,13 +68,14 @@ public class BukkitEntity implements dev.neuralnexus.taterapi.entity.Entity {
         //        entity.setCustomName(name);
     }
 
-    @Override
+    @SuppressWarnings("null")
+	@Override
     public Location location() {
     	Location location = null;
     	location.setX(entity.getX());
     	location.setY(entity.getY());
     	location.setZ(entity.getZ());
-        return new BukkitLocation(location);
+        return new CanaryModLocation(location);
     }
 
     @Override
@@ -97,7 +98,8 @@ public class BukkitEntity implements dev.neuralnexus.taterapi.entity.Entity {
         return false;
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public boolean hasPermission(String permission) {
         return TaterAPIProvider.hasPermission(this, permission);
     }

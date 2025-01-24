@@ -8,14 +8,14 @@
 import dev.neuralnexus.taterapi.event.api.PlayerEvents;
 
 /** Listens for player events. */
-public class BukkitPlayerListener extends PluginListener {
+public class CanaryModPlayerListener extends PluginListener {
     /**
      * Called when a player logs in.
      *
      * @param event The event.
      */
 	public void onLogin(Player player) {
-		PlayerEvents.LOGIN.invoke(new BukkitPlayerLoginEvent(player));
+		PlayerEvents.LOGIN.invoke(new CanaryModPlayerLoginEvent(player));
     }
 
     /**
@@ -24,7 +24,7 @@ public class BukkitPlayerListener extends PluginListener {
      * @param event The event.
      */
     public void onDisconnect(Player player) {
-    	PlayerEvents.LOGOUT.invoke(new BukkitPlayerLogoutEvent(player));
+    	PlayerEvents.LOGOUT.invoke(new CanaryModPlayerLogoutEvent(player));
     }
 
     /**
@@ -34,7 +34,7 @@ public class BukkitPlayerListener extends PluginListener {
      */
     
     public boolean onChat(Player player, String message) {
-    	PlayerEvents.MESSAGE.invoke(new BukkitPlayerMessageEvent(player, message));
+    	PlayerEvents.MESSAGE.invoke(new CanaryModPlayerMessageEvent(player, message));
         return false;
     }
 

@@ -15,29 +15,30 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/** Bukkit implementation of {@link World}. */
-public class BukkitWorld implements dev.neuralnexus.taterapi.world.World {
+/** CanaryMod implementation of {@link World}. */
+public class CanaryModWorld implements dev.neuralnexus.taterapi.world.World {
     private final World world;
 
     /**
      * Creates a new world.
      *
-     * @param world The Bukkit world.
+     * @param world The CanaryMod world.
      */
-    public BukkitWorld(World world) {
+    public CanaryModWorld(World world) {
         this.world = world;
     }
 
     /**
-     * Gets the Bukkit world.
+     * Gets the CanaryMod world.
      *
-     * @return The Bukkit world.
+     * @return The CanaryMod world.
      */
     public World world() {
         return world;
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public List players() {
     	List<Player> players = new ArrayList<Player>();
     	for(LivingEntity entity : world.getLivingEntityList()) {
@@ -57,7 +58,7 @@ public class BukkitWorld implements dev.neuralnexus.taterapi.world.World {
     public List<Entity> entities(
             Entity entity, Location pos1, Location pos2, Predicate<Entity> predicate) {
         return world.getEntityList().stream()
-                .map(BukkitEntity::new)
+                .map(CanaryModEntity::new)
                 .filter(e -> e.location().x() >= pos1.x() && e.location().x() <= pos2.x())
                 .filter(predicate)
                 .collect(Collectors.toList());
@@ -66,7 +67,7 @@ public class BukkitWorld implements dev.neuralnexus.taterapi.world.World {
     @Override
     public List<Entity> entities(Entity entity, double radius, Predicate<Entity> predicate) {
         return world.getEntityList().stream()
-                .map(BukkitEntity::new)
+                .map(CanaryModEntity::new)
                 .filter(e -> e.location().distance(entity.location()) <= radius)
                 .filter(predicate)
                 .collect(Collectors.toList());

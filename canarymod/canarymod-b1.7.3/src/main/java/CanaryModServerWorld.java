@@ -4,27 +4,24 @@
  * The API is Licensed under <a href="https://github.com/p0t4t0sandwich/TaterLib/blob/dev/LICENSE-API">MIT</a>
  */
 
-
-import dev.neuralnexus.taterapi.world.ServerWorld;
-
-/** Bukkit implementation of {@link World}. */
-public class BukkitServerWorld extends BukkitWorld {
+/** CanaryMod implementation of {@link World}. */
+public class CanaryModServerWorld extends CanaryModWorld {
     private final World world;
 
     /**
      * Creates a new world.
      *
-     * @param world The Bukkit world.
+     * @param world The CanaryMod world.
      */
-    public BukkitServerWorld(World world) {
+    public CanaryModServerWorld(World world) {
         super(world);
         this.world = world;
     }
 
     /**
-     * Gets the Bukkit world.
+     * Gets the CanaryMod world.
      *
-     * @return The Bukkit world.
+     * @return The CanaryMod world.
      */
     public World world() {
         return world;

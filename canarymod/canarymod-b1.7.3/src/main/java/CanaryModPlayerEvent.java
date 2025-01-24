@@ -6,20 +6,20 @@
 
 import dev.neuralnexus.taterapi.event.player.PlayerEvent;
 
-/** Bukkit implementation of {@link PlayerEvent}. */
-public class BukkitPlayerEvent {
+/** CanaryMod implementation of {@link PlayerEvent}. */
+public class CanaryModPlayerEvent {
     private Player event;
 
-    BukkitPlayerEvent(Player event) {
+    CanaryModPlayerEvent(Player event) {
         this.event = event;
     }
 
-    public BukkitPlayerEvent() {
+    public CanaryModPlayerEvent() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
     public Player player() {
-        return (new BukkitPlayer(event)).player();
+        return (new CanaryModPlayer(event)).player();
     }
 }
